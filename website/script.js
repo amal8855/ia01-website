@@ -537,7 +537,8 @@ function evaluerUniversite(univ, profil) {
     const PAYS_ASIATIQUE = ["Japon", "Chine", "Corée du Sud"];
     const PAYS_LATINE = ["Espagne", "Brésil", "Argentine", "Colombie", "Mexique", "Chili"];
     const PAYS_NORDIQUE = ["Suède", "Finlande", "Norvège", "Danemark"];
-    const PAYS_EUROPE = ["Albanie", "Allemagne", "Autriche", "Espagne", "Italie", "Royaume-Uni", "Portugal", "France"]; // France added for completeness if data exists
+    const PAYS_EUROPE = ["Albanie", "Allemagne", "Autriche", "Espagne", "Italie", "Royaume-Uni", "Portugal", "France"];
+    const PAYS_ANGLO = ["USA", "Canada", "Royaume-Uni", "Australie", "Afrique du Sud", "Irlande"];
 
     // DEBUG LOG
     console.log(`Eval: ${univ.nom} (${univ.pays}) vs Culture: ${profil.culture}`);
@@ -577,6 +578,14 @@ function evaluerUniversite(univ, profil) {
             score += 4;
             cultureMatch = true;
             console.log("-> MATCH EUROPEENNE");
+        }
+    } else if (profil.culture === "ANGLO") {
+        cultureRelevant = true;
+        if (PAYS_ANGLO.includes(univ.pays)) {
+            positifs.push("Correspond à votre préférence culturelle Anglo-saxonne");
+            score += 4;
+            cultureMatch = true;
+            console.log("-> MATCH ANGLO");
         }
     }
 
