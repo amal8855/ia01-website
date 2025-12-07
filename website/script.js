@@ -513,21 +513,28 @@ function evaluerUniversite(univ, profil) {
         score -= 1;
     }
 
+    // DEBUG LOG
+    console.log(`Eval: ${univ.nom} (${univ.pays}) vs Culture: ${profil.culture}`);
+
     if (profil.culture === "ASIATIQUE" && ["Japon", "Chine", "Corée du Sud"].includes(univ.pays)) { // R22
         positifs.push("Correspond à votre préférence culturelle Asiatique");
         score += 4;
+        console.log("-> MATCH ASIATIQUE");
     }
-    if (profil.culture === "LATINE" && ["Espagne", "Brésil", "Argentine", "Colombie", "Mexique"].includes(univ.pays)) {
+    if (profil.culture === "LATINE" && ["Espagne", "Brésil", "Argentine", "Colombie", "Mexique", "Chili"].includes(univ.pays)) {
         positifs.push("Correspond à votre préférence culturelle Latine");
         score += 4;
+        console.log("-> MATCH LATINE");
     }
     if (profil.culture === "NORDIQUE" && ["Suède", "Finlande", "Norvège", "Danemark"].includes(univ.pays)) {
         positifs.push("Correspond à votre préférence culturelle Nordique");
         score += 4;
+        console.log("-> MATCH NORDIQUE");
     }
     if (profil.culture === "EUROPEENNE" && ["Albanie", "Allemagne", "Autriche", "Espagne", "Italie", "Royaume-Uni"].includes(univ.pays)) {
         positifs.push("Correspond à votre préférence culturelle Européenne");
         score += 4;
+        console.log("-> MATCH EUROPEENNE");
     }
 
     // --- RETOUR ---
