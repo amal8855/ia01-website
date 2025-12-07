@@ -525,6 +525,10 @@ function evaluerUniversite(univ, profil) {
         positifs.push("Correspond à votre préférence culturelle Nordique");
         score += 4;
     }
+    if (profil.culture === "EUROPEENNE" && ["Albanie", "Allemagne", "Autriche", "Espagne", "Italie", "Royaume-Uni"].includes(univ.pays)) {
+        positifs.push("Correspond à votre préférence culturelle Européenne");
+        score += 4;
+    }
 
     // --- RETOUR ---
     if (exclu) score = -100; // Force low score
