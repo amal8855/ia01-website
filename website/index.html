@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Système Expert Mobilité Internationale - UTC</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Police système moderne -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- HEADER FIXE -->
+    <header class="utc-header">
+        <div class="container header-inner">
+            <div class="logo-area">
+                <div class="logo-main">UTC</div>
+                <div class="logo-sub">Université de Technologie de Compiègne</div>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#hero">Accueil</a></li>
+                    <li><a href="#expert-system">Système Expert</a></li>
+                    <li><a href="#about">A propos</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- SECTION HERO -->
+        <section id="hero" class="hero-section">
+            <div class="container hero-content">
+                <h1>Système Expert de Mobilité Internationale</h1>
+                <p class="hero-subtitle">Votre assistant intelligent pour choisir la destination universitaire idéale.
+                </p>
+                <div class="hero-actions">
+                    <a href="#expert-system" class="btn btn-primary">Lancer un nouveau profil</a>
+                    <a href="#backward-section" class="btn btn-secondary">Analyser une destination</a>
+                </div>
+                <p class="hero-footer">Département Génie Informatique - Université de Technologie de Compiègne</p>
+            </div>
+        </section>
+
+        <!-- SECTION SYSTEME EXPERT -->
+        <section id="expert-system" class="expert-section">
+            <div class="container">
+
+                <!-- PROFIL UTILISATEUR (CENTRALISE) -->
+                <div class="card mb-8">
+                    <div class="card-header">
+                        <h2>Mon Profil</h2>
+                        <p>Renseignez vos critères pour l'analyse</p>
+                    </div>
+                    <div class="card-body">
+                        <!-- DEBUT INPUTS -->
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="branche">Branche</label>
+                                <select id="branche">
+                                    <option value="GI">Génie Informatique (GI)</option>
+                                    <option value="IM">Ingénierie Mécanique (IM)</option>
+                                    <option value="GSU">Génie des Systèmes Urbains (GSU)</option>
+                                    <option value="GP">Génie des Procédés (GP)</option>
+                                    <option value="GM">Génie Mécanique (GM)</option>
+                                    <option value="GB">Génie Biologique (GB)</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="anglais">Niveau d'anglais</label>
+                                <select id="anglais">
+                                    <option value="A1">A1</option>
+                                    <option value="A2">A2</option>
+                                    <option value="B1">B1</option>
+                                    <option value="B2" selected>B2</option>
+                                    <option value="C1">C1</option>
+                                    <option value="C2">C2</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="allemand">Niveau d'allemand</label>
+                                <select id="allemand">
+                                    <option value="NIL">NIL (Aucun)</option>
+                                    <option value="A1">A1</option>
+                                    <option value="A2">A2</option>
+                                    <option value="B1">B1</option>
+                                    <option value="B2">B2</option>
+                                    <option value="C1">C1</option>
+                                    <option value="C2">C2</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="espagnol">Niveau d'espagnol</label>
+                                <select id="espagnol">
+                                    <option value="NIL">NIL (Aucun)</option>
+                                    <option value="A1">A1</option>
+                                    <option value="A2">A2</option>
+                                    <option value="B1">B1</option>
+                                    <option value="B2">B2</option>
+                                    <option value="C1">C1</option>
+                                    <option value="C2">C2</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="budget">Budget mensuel</label>
+                                <select id="budget">
+                                    <option value="FAIBLE">Faible</option>
+                                    <option value="MOYEN" selected>Moyen</option>
+                                    <option value="ELEVE">Elevé</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="climat">Climat préféré</label>
+                                <select id="climat">
+                                    <option value="FROID">Froid / Hivernal</option>
+                                    <option value="TEMPERE" selected>Tempéré</option>
+                                    <option value="CHAUD">Chaud / Ensoleillé</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="objectif">Type de mobilité</label>
+                                <select id="objectif">
+                                    <option value="SEMESTRE">Semestre d'étude</option>
+                                    <option value="STAGE">Stage</option>
+                                    <option value="DOUBLE-DIPLOME">Double Diplôme</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="culture">Préférence culturelle</label>
+                                <select id="culture">
+                                    <option value="AUCUNE">Indifférent</option>
+                                    <option value="EUROPEENNE">Européenne</option>
+                                    <option value="ASIATIQUE">Asiatique</option>
+                                    <option value="NORDIQUE">Nordique</option>
+                                    <option value="LATINE">Latine</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- FIN INPUTS -->
+                    </div>
+                </div>
+
+                <div class="expert-grid">
+                    <!-- COLONNE GAUCHE : CHAINAGE AVANT -->
+                    <div class="expert-col">
+                        <div class="card">
+                            <div class="card-header">
+                                <h2>Chaînage avant</h2>
+                                <p>Trouver ma destination idéale</p>
+                            </div>
+                            <div class="card-body">
+                                <p class="mb-8">Lancez l'analyse basée sur votre profil ci-dessus.</p>
+                                <form id="form-forward" onsubmit="event.preventDefault(); chainageAvant();">
+
+
+                                    <button type="submit" class="btn btn-primary full-width">Lancer le chaînage
+                                        avant</button>
+                                </form>
+                            </div>
+
+                            <!-- RESULTATS -->
+                            <div id="forward-result" class="results-container">
+                                <!-- Les cartes de résultats s'afficheront ici -->
+                                <div class="empty-state">
+                                    <p class="text-muted">Les recommandations apparaîtront ici après analyse.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- COLONNE DROITE : CHAINAGE ARRIERE -->
+                    <div class="expert-col" id="backward-section">
+                        <div class="card">
+                            <div class="card-header">
+                                <h2>Chaînage arrière</h2>
+                                <p>Vérifier une destination</p>
+                            </div>
+                            <div class="card-body">
+                                <p class="info-text">Le système utilise le profil défini ci-dessus.</p>
+                                <form id="form-backward" onsubmit="event.preventDefault(); chainageArriere();">
+                                    <div class="form-group">
+                                        <label for="univ-target">Destination à vérifier</label>
+                                        <select id="univ-target">
+                                            <!-- Rempli par JS -->
+                                        </select>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary full-width">Vérifier cette
+                                        destination</button>
+                                </form>
+                            </div>
+
+                            <!-- RESULTATS -->
+                            <div id="backward-result" class="results-container">
+                                <!-- Le résultat s'affichera ici -->
+                                <div class="empty-state">
+                                    <p class="text-muted">L'analyse de la destination s'affichera ici.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION A PROPOS -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <h2>À propos du projet</h2>
+                <p class="about-intro">Ce système expert simule un conseil de mobilité internationale en fonction de la
+                    branche, des langues, du budget et d'autres critères académiques et personnels.</p>
+
+                <div class="about-details">
+                    <div class="tech-stack">
+                        <h3>Technologies utilisées</h3>
+                        <ul>
+                            <li>HTML5 / CSS3 Moderne</li>
+                            <li>JavaScript (Moteur d'inférence)</li>
+                            <li>Logique inspirée d'un TP Lisp (IA01)</li>
+                        </ul>
+                    </div>
+                    <div class="author-box">
+                        <h3>Auteur</h3>
+                        <p>Développé par : <strong>Étudiant IA01</strong><br>Génie Informatique - UTC</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 – Système Expert Mobilité Internationale – Université de Technologie de Compiègne</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Smooth scroll pour les ancres
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
