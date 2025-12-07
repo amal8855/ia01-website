@@ -513,28 +513,57 @@ function evaluerUniversite(univ, profil) {
         score -= 1;
     }
 
+    // Listes des pays par culture
+    const PAYS_ASIATIQUE = ["Japon", "Chine", "Corée du Sud"];
+    const PAYS_LATINE = ["Espagne", "Brésil", "Argentine", "Colombie", "Mexique", "Chili"];
+    const PAYS_NORDIQUE = ["Suède", "Finlande", "Norvège", "Danemark"];
+    const PAYS_EUROPE = ["Albanie", "Allemagne", "Autriche", "Espagne", "Italie", "Royaume-Uni", "Portugal", "France"]; // France added for completeness if data exists
+
     // DEBUG LOG
     console.log(`Eval: ${univ.nom} (${univ.pays}) vs Culture: ${profil.culture}`);
 
-    if (profil.culture === "ASIATIQUE" && ["Japon", "Chine", "Corée du Sud"].includes(univ.pays)) { // R22
-        positifs.push("Correspond à votre préférence culturelle Asiatique");
-        score += 4;
-        console.log("-> MATCH ASIATIQUE");
+    // R22: Bonus et Malus Culturels
+    let cultureMatch = false;
+    let cultureRelevant = false; // Si une préférence culturelle est exprimée
+
+    if (profil.culture === "ASIATIQUE") {
+        cultureRelevant = true;
+        if (PAYS_ASIATIQUE.includes(univ.pays)) {
+            positifs.push("Correspond à votre préférence culturelle Asiatique");
+            score += 4;
+            cultureMatch = true;
+            console.log("-> MATCH ASIATIQUE");
+        }
+    } else if (profil.culture === "LATINE") {
+        cultureRelevant = true;
+        if (PAYS_LATINE.includes(univ.pays)) {
+            positifs.push("Correspond à votre préférence culturelle Latine");
+            score += 4;
+            cultureMatch = true;
+            console.log("-> MATCH LATINE");
+        }
+    } else if (profil.culture === "NORDIQUE") {
+        cultureRelevant = true;
+        if (PAYS_NORDIQUE.includes(univ.pays)) {
+            positifs.push("Correspond à votre préférence culturelle Nordique");
+            score += 4;
+            cultureMatch = true;
+            console.log("-> MATCH NORDIQUE");
+        }
+    } else if (profil.culture === "EUROPEENNE") {
+        cultureRelevant = true;
+        if (PAYS_EUROPE.includes(univ.pays)) {
+            positifs.push("Correspond à votre préférence culturelle Européenne");
+            score += 4;
+            cultureMatch = true;
+            console.log("-> MATCH EUROPEENNE");
+        }
     }
-    if (profil.culture === "LATINE" && ["Espagne", "Brésil", "Argentine", "Colombie", "Mexique", "Chili"].includes(univ.pays)) {
-        positifs.push("Correspond à votre préférence culturelle Latine");
-        score += 4;
-        console.log("-> MATCH LATINE");
-    }
-    if (profil.culture === "NORDIQUE" && ["Suède", "Finlande", "Norvège", "Danemark"].includes(univ.pays)) {
-        positifs.push("Correspond à votre préférence culturelle Nordique");
-        score += 4;
-        console.log("-> MATCH NORDIQUE");
-    }
-    if (profil.culture === "EUROPEENNE" && ["Albanie", "Allemagne", "Autriche", "Espagne", "Italie", "Royaume-Uni"].includes(univ.pays)) {
-        positifs.push("Correspond à votre préférence culturelle Européenne");
-        score += 4;
-        console.log("-> MATCH EUROPEENNE");
+
+    // Application du malus si une culture spécifique est demandée mais ne correspond pas
+    if (cultureRelevant && !cultureMatch) {
+        limites.push("Ne correspond pas à votre préférence culturelle");
+        score -= 5; // Malus significatif pour faire descendre l'option
     }
 
     // --- RETOUR ---
