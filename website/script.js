@@ -444,6 +444,10 @@ function evaluerUniversite(univ, profil) {
         if (getLangValue(profil.allemand) >= getLangValue(univ.langues.allemandMin)) {
             positifs.push("Niveau d'allemand suffisant");
             score += 2;
+        } else {
+            // FIX: Ajout pénalité générique pour l'allemand
+            limites.push(`Niveau d'allemand insuffisant (requis ${univ.langues.allemandMin})`);
+            score -= 5;
         }
         // Exclusion déjà gérée par R4
     }
@@ -496,10 +500,25 @@ function evaluerUniversite(univ, profil) {
             score += 5;
         }
     } else if (profil.objectif === "STAGE") {
-        // R18: Préférence anglophone
+        // FIX: Vérification disponibilité Stage
+        if (!univ.objectifsOK.includes("STAGE")) {
+            exclu = true;
+            limites.push("Ce partenariat ne prévoit pas de mobilité sous forme de stage");
+        } else {
+            positifs.push("Mobilité de type Stage possible");
+            score += 5;
+        }
+
+        // R18: Préférence anglophone (Bonus supplémentaire)
         if (["Royaume-Uni", "USA", "Canada", "Australie", "Irlande"].includes(univ.pays) || univ.langues.anglaisMin !== "NIL") {
             positifs.push("Région anglophone adaptée pour un stage international");
             score += 3;
+        }
+    } else {
+        // Cas SEMESTRE (vérification de base)
+        if (!univ.objectifsOK.includes("SEMESTRE")) {
+            exclu = true;
+            limites.push("Ce partenariat ne propose pas de semestre d'échange simple");
         }
     }
 
@@ -510,7 +529,8 @@ function evaluerUniversite(univ, profil) {
         score += 3;
     } else {
         limites.push(`Le climat ${univ.climat} diffère de votre préférence (${profil.climat})`);
-        score -= 1;
+        // FIX: Augmentation pénalité climat
+        score -= 3;
     }
 
     // Listes des pays par culture
